@@ -6,6 +6,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
+//导入vue-resource
+import VueResource from 'vue-resource';
+Vue.use(VueResource);
+
+import $ from 'jquery';
+
 //路由：导入自己的router.js模块
 import router from './router.js';
 

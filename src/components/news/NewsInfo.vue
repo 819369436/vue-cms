@@ -7,7 +7,7 @@
         </p>
         <hr/>
         <div class="newsinfo-content">
-            123123
+            123123555446666
         </div>
     </div>
 </template>

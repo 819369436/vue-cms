@@ -2,7 +2,7 @@
   <div class="app-container">
 
     <!-- 顶部 -->
-    <mt-header fixed title="商城项目测试小Demo"></mt-header>
+    <mt-header fixed title="Demo商城项目"></mt-header>
 
 
     <!-- 中间 路由router-view区域 -->
@@ -42,6 +42,7 @@
 <style lang="scss" scoped>
   .app-container{
     padding-top: 40px;
+    padding-bottom: 50px;
     overflow-x: hidden;
   }
 

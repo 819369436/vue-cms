@@ -53,7 +53,7 @@
                 // var api = 'http://192.168.2.59:8080/homeController/getTakTurnImg';
                 var api = 'http://192.168.131.1:8080/homeController/getTakTurnImg';
 
-                this.$http.get(api).then(result => {
+                this.$http.get("homeController/getTakTurnImg").then(result => {
                     console.log(result.body);
                     if(result.body.code == 0){
                         this.imgList = result.body.data;

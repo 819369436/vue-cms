@@ -6,9 +6,20 @@ import Vue from 'vue'
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
+//定义全局过滤器：用来过滤时间日期的指定格式显示
+    //导入一个时间格式化插件:moment
+import moment from 'moment';
+Vue.filter('dateFormat', function (dataStr, pattern = "YYYY-MM-DD HH:mm:ss") {
+    return moment(dataStr).format(pattern);
+})
+
+
 //导入vue-resource
 import VueResource from 'vue-resource';
 Vue.use(VueResource);
+
+//定义vue-resource的全局url变量
+Vue.http.options.root = 'http://localhost:8080';
 
 import $ from 'jquery';
 

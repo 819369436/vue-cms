@@ -8,16 +8,36 @@ import Shopcar from './components/tabbar/Shopcar.vue';
 import NewsList from './components/news/NewsList.vue';
 import NewsInfo from './components/news/NewsInfo.vue';
 
+import comment from './components/common/comment.vue';
+
 
 // 3. 创建路由对象
 var router = new VueRouter({
   routes: [ //配置路由规则
-    { path: '/home', component: Home },
-    { path: '/member', component: Member },
-    { path: '/search', component: Search },
-    { path: '/shopcar', component: Shopcar },
-    { path: '/newsList', component: NewsList },
-    { path: '/newsInfo/:id', component: NewsInfo },
+    {
+      path: '/home',
+      component: Home
+    },
+    {
+      path: '/member',
+      component: Member
+    },
+    {
+      path: '/search',
+      component: Search
+    },
+    { path: '/shopcar',
+      component: Shopcar
+    },
+    {
+      path: '/newsList',
+      component: NewsList
+    },
+    {
+      path: '/newsInfo/:id',
+      component: NewsInfo,
+
+    },
 
     { path: '/', redirect: '/home' },
 

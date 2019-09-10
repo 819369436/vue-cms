@@ -32,10 +32,11 @@ import app from './App.vue';
 
 
 //导入mint-ui组件
-import { Header, Swipe, SwipeItem  } from 'mint-ui'
+import { Header, Swipe, SwipeItem, Button  } from 'mint-ui'
 Vue.component(Header.name, Header);
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
+Vue.component(Button.name, Button);
 
 //导入mui组件
 import './lib/mui/css/mui.min.css';

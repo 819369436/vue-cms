@@ -21,6 +21,10 @@ Vue.use(VueResource);
 //定义vue-resource的全局url变量
 Vue.http.options.root = 'http://localhost:8080';
 
+//设置全局post请求时表单数据格式为json形式传后台
+// Vue.http.options.emulateJSON = true;
+
+
 import $ from 'jquery';
 
 //路由：导入自己的router.js模块

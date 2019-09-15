@@ -1,17 +1,17 @@
 <template>
     <div class="newsinfo-box">
-        <h3>新闻详情 {{this.id}}</h3>
+        <h3>{{newsInfo.title}} {{this.id}}</h3>
         <p class="newsinfo-subtitle">
-            <span>发表时间：2019-09-09 23:33:33</span>
-            <span>点击12次</span>
+            <span>发表时间：{{newsInfo.createTime | dateFormat('YYYY-MM-DD HH:mm:ss')}}</span>
+            <span>点击{{newsInfo.count}}次</span>
         </p>
         <hr/>
         <div class="newsinfo-content">
-            123123555446666
+            {{newsInfo.content}}
         </div>
 
         <!-- 评论区域 -->
-        <comment-box :id="this.id"></comment-box>
+        <comment-box :newsId="this.id"></comment-box>
     </div>
 </template>
 
@@ -24,7 +24,23 @@
     export default {
         data(){
             return{
-                id: this.$route.params.id  //获取路由传来的参数id
+                id: this.$route.params.id,  //获取路由传来的参数id
+                newsInfo: {}
+            }
+        },
+        created(){
+            this.getVueNewsInfo();
+        },
+        methods:{
+            getVueNewsInfo(){
+                this.$http.post("newsController/getVueNewsInfo",{id:this.id}).then(result=>{
+                    console.log(result);
+                    if(result.body.code == 0){
+                        this.newsInfo = result.body.data;
+                    }else{
+                        alert("获取新闻列表数据失败");
+                    }
+                })
             }
         },
         components:{

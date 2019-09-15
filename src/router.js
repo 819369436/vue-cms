@@ -9,6 +9,7 @@ import NewsList from './components/news/NewsList.vue';
 import NewsInfo from './components/news/NewsInfo.vue';
 
 import comment from './components/common/comment.vue';
+import PhotoList from "./components/photos/photoList.vue";
 
 
 // 3. 创建路由对象
@@ -36,6 +37,11 @@ var router = new VueRouter({
     {
       path: '/newsInfo/:id',
       component: NewsInfo,
+
+    },
+    {
+      path: '/photoList',
+      component: PhotoList,
 
     },
 

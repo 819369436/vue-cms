@@ -6,6 +6,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
+
+
 //定义全局过滤器：用来过滤时间日期的指定格式显示
     //导入一个时间格式化插件:moment
 import moment from 'moment';
@@ -17,6 +19,10 @@ Vue.filter('dateFormat', function (dataStr, pattern = "YYYY-MM-DD HH:mm:ss") {
 //导入vue-resource
 import VueResource from 'vue-resource';
 Vue.use(VueResource);
+
+
+
+
 
 //定义vue-resource的全局url变量
 Vue.http.options.root = 'http://localhost:8080';
@@ -36,11 +42,9 @@ import app from './App.vue';
 
 
 //导入mint-ui组件
-import { Header, Swipe, SwipeItem, Button  } from 'mint-ui'
-Vue.component(Header.name, Header);
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
-Vue.component(Button.name, Button);
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
+Vue.use(MintUI);
 
 //导入mui组件
 import './lib/mui/css/mui.min.css';

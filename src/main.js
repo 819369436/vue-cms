@@ -21,7 +21,8 @@ import VueResource from 'vue-resource';
 Vue.use(VueResource);
 
 
-
+import VuePreview from 'vue-preview';
+Vue.use(VuePreview)
 
 
 //定义vue-resource的全局url变量

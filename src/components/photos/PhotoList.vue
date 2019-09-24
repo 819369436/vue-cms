@@ -18,13 +18,13 @@
 
         <!--图片列表区域-->
         <ul class="img-list">
-            <li v-for="item in imgList" :key="item.id">
+            <router-link v-for="item in imgList" :key="item.id" :to="'/photoInfo/' + item.id" tag="li">
                 <img v-lazy="item.url">
                 <div class="info">
                     <h1 class="info-title">图片的标题</h1>
                     <div class="info-body">图片的描述描述描的描述描的描述描述描,图片的描述描述描的描述描的描述描述描图片的描述描述描的描述描的描述描述描述描述</div>
                 </div>
-            </li>
+            </router-link>
         </ul>
 
     </div>
@@ -71,7 +71,7 @@
             },
             queryImgList(imgCategoryId){//获取图片list
                 // alert(imgCategoryId);
-                this.$http.post("newsController/queryImgList",{imgCategoryId:imgCategoryId}).then(result=>{
+                this.$http.post("newsController/queryImgList",{imgTypeId:imgCategoryId}).then(result=>{
                     console.log(result);
                     if(result.body.code == 0){
                         this.imgList = result.body.data;

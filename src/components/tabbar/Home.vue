@@ -2,11 +2,7 @@
     <div id="home">
 
         <!-- 轮播图 -->
-        <mt-swipe :auto="4000">
-            <mt-swipe-item v-for="img in imgList">
-                <img v-bind:src="img.url" width="100%" height="100%" alt="" />
-            </mt-swipe-item>
-        </mt-swipe>
+        <swiper-box :imgList="this.imgList" :isFull="true"></swiper-box>
 
         <!--  九宫格菜单 -->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
@@ -22,9 +18,12 @@
                 <div class="mui-media-body">图片分享</div>
                 </router-link>
             </li>
-            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                <router-link to="/GoodsList">
                 <img clss="mui-table-view-cell-img" src="../../images/menu3.png" alt="">
-                <div class="mui-media-body">商品购买</div></a></li>
+                <div class="mui-media-body">商品购买</div>
+                </router-link>
+            </li>
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
                 <img clss="mui-table-view-cell-img" src="../../images/menu4.png" alt="">
                 <div class="mui-media-body">留言反馈</div></a></li>
@@ -42,6 +41,9 @@
 </template>
 
 <script>
+
+    import swiper from '../common/Swiper.vue';
+
     export default {
         data(){
             return{
@@ -67,25 +69,15 @@
                 });
 
             }
+        },
+        components:{
+            'swiper-box': swiper
         }
     }
 </script>
 
 <style lang="scss" scoped>
-.mint-swipe{
-    height: 200px;
-    .mint-swipe-item{
-        &:nth-child(1){
-            background-color: red;
-        }
-        &:nth-child(2){
-            background-color: green;
-        }
-        &:nth-child(3){
-            background-color: blue;
-        }
-    }
-}
+
 
     .mui-grid-view.mui-grid-9{
         background-color: #fff;

@@ -30,7 +30,7 @@
                         市场价:<del>￥2399</del>&nbsp;&nbsp;销售价:<span class="now-price">￥3199</span>
                     </p>
                     <p>
-                        购买数量:<numbox></numbox>
+                        购买数量:<numbox @getcount="getSelectedCount" :max="9"></numbox>
 
                     </p>
                     <p>
@@ -47,9 +47,9 @@
             <div class="mui-card-header">商品参数</div>
             <div class="mui-card-content">
                 <div class="mui-card-content-inner">
-                    <p>商品货号:</p>
-                    <p>库存情况:</p>
-                    <p>上架时间:</p>
+                    <p>商品货号:12138</p>
+                    <p>库存情况:9件</p>
+                    <p>上架时间:2019年10月7日21:14:50</p>
                 </div>
             </div>
             <div class="mui-card-footer">
@@ -109,11 +109,14 @@
             enter(el, done){
                 el.offsetWidth;
                 el.style.transform = 'translate(99px, 230px)';
-                el.style.transition = "all 1s cubic-bezier(.4,-0.3,1,.68)";
+                el.style.transition = "all 0.3s cubic-bezier(.4,-0.3,1,.68)";
                 done();
             },
             afterEnter(el){
                 this.ballFlag = !this.ballFlag;
+            },
+            getSelectedCount(count){
+                console.log("子页面goodsinfo_numbox.vue传来的值：" + count)
             }
 
         },

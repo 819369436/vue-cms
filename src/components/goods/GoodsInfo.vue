@@ -77,6 +77,8 @@
                     {url:'//img12.360buyimg.com/n1/s450x450_jfs/t1/74174/26/9973/74926/5d79ca36E8ed69300/da59528740b49ca3.jpg'}
                 ],
                 ballFlag: false,//控制小球显示和隐藏
+                count:1,
+                goodsInfo:{}
             }
         },
         created() {
@@ -102,6 +104,17 @@
             },
             addCar(){//添加到购物车
                 this.ballFlag = !this.ballFlag;
+
+                this.goodsInfo = {
+                    id: '1',
+                    count: this.count,
+                    price: 2399,
+                    selected: true
+                }
+                //调用main.js中的store
+                this.$store.commit("addToCar", this.goodsInfo)
+                // console.log(this.$store.state.name)
+
             },
             beforeEnter(el){
                 el.style.transform = "translate(0,0)"; //css绝对定位时的初始值
@@ -117,6 +130,8 @@
             },
             getSelectedCount(count){
                 console.log("子页面goodsinfo_numbox.vue传来的值：" + count)
+                this.count = count;
+
             }
 
         },

@@ -42,6 +42,48 @@ import router from './router.js';
 import app from './App.vue';
 
 
+//导入vuex
+import Vuex from 'vuex'
+Vue.use(Vuex)
+var store = new Vuex.Store({
+    state:{//调用：this.$store.state.***
+        //name: 12,
+        car:[]
+    },
+    mutations:{//调用：this.$store.commit('方法名称','参数')
+        addToCar(state, goodsInfo){
+
+            var flag = false;
+
+            state.car.some(item => {
+                if(item.id == goodsInfo.id){
+                    item.count += parseInt(goodsInfo.count)
+                    flag = true
+                    return true
+                }
+            })
+
+            if(!flag){
+                state.car.push(goodsInfo)
+            }
+
+        }
+
+
+    },
+    getters:{ //调用：this.$store.getters.***
+        //相当于filters过滤器中写方法
+        getAllCount(state){
+            var c = 0;
+            state.car.forEach(item => {
+                c += item.count;
+            })
+            return c;
+        }
+    }
+})
+
+
 //导入mint-ui组件
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
@@ -54,6 +96,7 @@ import './lib/mui/css/icons-extra.css';
 var vm = new Vue({
     el: '#app',
     router,//路由挂载
+    store,
     render: c => c(app)
 });
 

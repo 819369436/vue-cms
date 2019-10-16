@@ -2,7 +2,11 @@
   <div class="app-container">
 
     <!-- 顶部 -->
-    <mt-header fixed title="Demo商城项目"></mt-header>
+    <mt-header fixed title="Demo商城项目">
+      <span slot="left">
+        <mt-button icon="back" @click="goBack()" v-show="this.flag">返回</mt-button>
+      </span>
+    </mt-header>
 
 
     <!-- 中间 路由router-view区域 -->
@@ -36,6 +40,36 @@
 </template>
 
 <script>
+
+  export default{
+    data(){
+      return{
+        flag: false
+      }
+    },
+    methods:{
+      goBack(){
+        //点击后退
+        // alert(33);
+        this.$router.go(-1);
+
+      }
+    },
+    created(){
+      this.flag = this.$route.path === '/home' ? false:true;
+    },
+    watch:{
+      "$route.path":function (pathValue) {
+        if(pathValue == "/home"){
+          this.flag = false;
+        }else{
+          this.flag = true;
+        }
+      }
+    }
+  }
+
+
 </script>
 
 
